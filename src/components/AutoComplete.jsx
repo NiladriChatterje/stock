@@ -20,7 +20,10 @@ export const AutoComplete = () => {
         {results.map((result) => {
           return (
             <li onClick={() => {
-              addStock(result.symbol)
+              if(result.symbol.includes('.'))
+                {alert('You cannot add this Stock. You should be a premium user')}
+              else 
+                {addStock(result.symbol);}
               setSearch("")
             }} key={result.symbol} className="dropdown-item">{result.description} ({result.symbol})</li>
           )
